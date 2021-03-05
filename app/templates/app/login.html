@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="col-lg-4 mx-auto shadow p-0 mt-4">
+        <div class="alert alert-info">
+            <h3>Login to add your todo</h3>
+        </div>
+        <div class="p-4">
+            <form  method="post">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button class = "btn btn-outline-info">Login</button>
+                <div class = "border-top pt-2">
+                    <small class = 'text-muted'>Need an account ? <a class ='ml-3' href="{% url 'register' %}">Sign up </a> </small>
+                </div>
+
+                
+            </form>
+        
+        </div>
+    </div>
+{% endblock content %}
