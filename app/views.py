@@ -6,6 +6,7 @@ from .forms import ItemForm
 from django.contrib.auth.decorators import login_required
 from .models import Item
 from django.contrib.auth.models import User
+from django.core.paginator import Paginator 
 
 
 @login_required(login_url= "login")
@@ -13,7 +14,11 @@ def home_view(request) :
     form = ItemForm() 
     user = request.user 
     all_items = Item.objects.filter(user = user ).order_by('priority')
-    context = { 'form' : form , 'all_items' : all_items }
+    p =  Paginator(all_items , 5 ) 
+    page_number = request.GET.get('page' ) 
+
+    page = p.get_page(page_number  ) 
+    context = { 'form' : form , 'all_items' : page }
     return render(request , 'app/home.html' , context = context ) 
 
 
