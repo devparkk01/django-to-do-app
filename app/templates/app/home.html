@@ -96,13 +96,13 @@
                     <div class = "row text-center pt-2">
                         <div class = "col-md-6 pl-4">
                             {% if all_items.has_previous %}
-                            <a href="{% url 'home' %}?page={{ all_items.previous_page_number }} " class= 'btn btn-outline-info' >Prev⏮️</a>
+                            <a href="{% url 'home' %}?page={{ all_items.previous_page_number }} " class= 'btn btn-outline-info' >⮜ Prev</a>
                         {% endif %}
                         </div>
 
                         <div class="col-md-6 pr-4">
                             {% if all_items.has_next %}
-                                <a href="{% url 'home' %}?page={{ all_items.next_page_number }}"  class = 'btn btn-outline-info'>Next⏭️</a>
+                                <a href="{% url 'home' %}?page={{ all_items.next_page_number }}"  class = 'btn btn-outline-info'>Next ⮞</a>
                             {% endif %}
 
                         </div>
