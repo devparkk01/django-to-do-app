@@ -42,8 +42,8 @@
 
                     {% else %}
                         <div  class = 'text-right'>
-                            <a href="{% url 'delete-completed' user.username %}" title = "Delete Completed" class= 'btn'>🔴</a>
-                            <a href="{% url 'delete-all' user.username %}" title = "Delete All" class= 'btn'>🔵</a>
+                            <a href="{% url 'delete-completed' user.username %}" title = "Delete Completed" class= 'btn'>Delete Completed🔴</a>
+                            <a href="{% url 'delete-all' user.username %}" title = "Delete All" class= 'btn'>Delete all🔵</a>
     
                         </div>
                         <table class = "table">
@@ -60,7 +60,8 @@
                             <tbody>
                                 {% for item in all_items %} 
                                     <tr>
-                                        <td>{{ forloop.counter }}</td>
+                                        
+                                        <td>{{ all_items.start_index|add:forloop.counter0 }}</td>
                                         <td>{{ item.title }}</td>
                                         <td>
                                             {% if item.status == "C" %}  

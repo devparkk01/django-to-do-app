@@ -16,8 +16,9 @@ def home_view(request) :
     all_items = Item.objects.filter(user = user ).order_by('priority')
     p =  Paginator(all_items , 5 ) 
     page_number = request.GET.get('page' ) 
-
     page = p.get_page(page_number  ) 
+    x = page.number
+    print(x)
     context = { 'form' : form , 'all_items' : page }
     return render(request , 'app/home.html' , context = context ) 
 
